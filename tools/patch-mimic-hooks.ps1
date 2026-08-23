@@ -38,6 +38,37 @@ if (Test-Path $hwm) {
     else {
         Write-Host "displayMimic already present"
     }
+    if ($raw -notmatch "function displayClothesLook") {
+        $raw = Get-Content -Path $hwm -Raw -Encoding UTF8
+        $clothes = @"
+      public function displayClothesLook(userName:String = "") : void
+      {
+         var clothes:BobbaClothesController = BobbaClothesController.install(this);
+         var name:String = userName;
+         if((name == null || name.length == 0) && clothes != null)
+         {
+            name = clothes.targetName;
+         }
+         if(clothes != null)
+         {
+            clothes.openForName(name);
+         }
+      }
+
+"@
+        $anchor = $null
+        foreach ($fn in @("public function displayMimic", "public function displayBobbaHelper", "public function displayPresets", "public function displayTraxMachine")) {
+            if ($raw.Contains($fn)) { $anchor = $fn; break }
+        }
+        if ($anchor) {
+            $raw = $raw.Replace($anchor, $clothes + "      " + $anchor.TrimStart())
+            Set-Content -Path $hwm -Value $raw -Encoding UTF8
+            Write-Host "Patched displayClothesLook into HabboWindowManagerComponent.as"
+        }
+    }
+    else {
+        Write-Host "displayClothesLook already present"
+    }
 }
 else {
     Write-Warning "HabboWindowManagerComponent.as missing"

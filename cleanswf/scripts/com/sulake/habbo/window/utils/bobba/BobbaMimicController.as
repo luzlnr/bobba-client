@@ -701,7 +701,7 @@ package com.sulake.habbo.window.utils.bobba
                if(child != null && child.caption != null && String(child.caption).length > 0)
                {
                   n = String(child.caption);
-                  if(n.toLowerCase() != "whisper" && n.toLowerCase() != "mimic")
+                  if(n.toLowerCase() != "whisper" && n.toLowerCase() != "mimic" && n.toLowerCase() != "clothes" && n.toLowerCase() != "roupas")
                   {
                      return n;
                   }
