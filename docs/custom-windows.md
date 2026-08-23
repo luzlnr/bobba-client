@@ -20,6 +20,8 @@ The frame XML is a `<layout>` with one `<frame params="33025" style="1">` contai
 
 After `buildFromXML`, cast to `IFrameController`, set the margins and `procedure`, `center()`, then `setParamFlag(257, false)` and `setParamFlag(32768, true)` so the window drags by its header instead of its content, and hand your Sprite to the canvas with `setDisplayObject`.
 
+Mimic uses Habbo **illumina_purple** (`style="103"`) and `BobbaIlluminaDarkStyle.patchPurpleFrame` swaps the purple frame, style-104 button, and close-button bitmaps for `illumina_dark.png`, `illumina_dark_bobba_green.png`, and `bobba_illumina_dark_btn.png`. Restore with `restorePurpleFrame` on dispose.
+
 ## Two things that are easy to miss
 
 - **Block room clicks.** Filling the Sprite is not enough — register the frame rect with `roomEngine.setMouseEventsDisabledRect("my_key", rect)` and remove it on hide/dispose, updating on `WE_RELOCATED`, `WE_RESIZED` and `WME_UP`. Do not `stopPropagation` in the capture phase on the View; that kills every child click.

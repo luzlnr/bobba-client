@@ -52,6 +52,14 @@ if (Test-Path $PackSrc) {
 # Deploy Trax Machine external pack (catalog + imgs + mp3s)
 Deploy-TraxPack $BobbaRoot | Out-Null
 
+# Idempotent host / command / avatar-menu hooks for Mimic
+$mimicHook = Join-Path $PSScriptRoot "patch-mimic-hooks.ps1"
+if (Test-Path $mimicHook) {
+    Write-Host "Patching Mimic host hooks..."
+    & powershell -ExecutionPolicy Bypass -File $mimicHook
+    if ($LASTEXITCODE -ne 0) { Write-Warning "patch-mimic-hooks.ps1 failed (continuing inject)" }
+}
+
 # Merge helpers into host (if configured)
 $mergeScript = Join-Path $PSScriptRoot "merge-helpers-into-script.ps1"
 Write-Host "Merging helpers (if any)..."

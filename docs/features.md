@@ -39,6 +39,17 @@ Per-room multi-recipient whisper over the Bobba sidecar (never hotel chat).
 
 Requires recipients to be online on Bobba with a linked `(hotelId, nickname)` profile.
 
+## Mimic (`:mimic`)
+
+In-client port of [GMimic](https://github.com/Julianty123/GMimic): copy another Habbo in the room.
+
+1. On another user's avatar menu, click **Mimic** (cloned under Whisper), or type `:mimic Nickname`
+2. A pixel window opens with their avatar on the left and Bobba checkboxes on the right
+3. Enable **Copy look**, **Copy motto**, **Copy speech**, **Follow walk**, **Copy sit**, **Copy dances**, and **Copy typing** as you like
+4. Closing the window turns mimic off
+
+Walk uses `MoveAvatarMessageComposer` toward their tile (same idea as GMimic's `MoveAvatar` + `UserUpdate`). Speech repeats their room chat/shout/whisper. Look sends `UpdateFigureData` when their figure changes.
+
 ## Wall item mover
 
 With *Mover item de parede* on, the furni infostand for wall items grows an arrow pad (`brand-pack/wallmover/`) that nudges posters and wall furni pixel by pixel via `MoveWallItemMessageComposer`.

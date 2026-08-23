@@ -40,6 +40,8 @@ cleanswf/scripts/**
 # Tooling scratch
 tools/inject-staging/
 tools/inject-log.txt
+tools/tmp-export/
+tools/tmp-*
 tools/_*/
 tools/_*
 tools/_ffdec_extract_help/

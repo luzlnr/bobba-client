@@ -12,7 +12,7 @@ So every pack is deployed twice, next to the SWF and under `local_include/`.
 
 ## `brand-pack/` → `bobba/`
 
-Login/loading backgrounds and logo (`bg_pattern_darktile.png`, `bg_pattern_bobbaskulls1.gif`, `logo-bobba-client.png`, `shadow.png`), the polaroid frame (`splash_pictures_no_pixel.png`, 838×302 at runtime), Bobba Helper chrome (`bobba-client-logo-splash.png` 124×108, `bobba-flower.png` 35×93, `bobba-discord-btn.png` / `bobba-settings-btn.png` 300×26), the avatar-editor Clothes button (`bobba_clothes_btn.png` 110×30, `bobba_clothes_hero.png` 485×109), the bottom-bar Helper button (`bobba_menu.png` 114×38, three 38×38 frames), `checkbox.png` (36×18), group chat icons (`group-chat.png` / `group-chat-unread.png`, **33×33**), `wallmover/` arrows, and **`i18n/` locale JSON** (`en.json`, `pt-BR.json`, `es.json`, `fr.json`).
+Login/loading backgrounds and logo (`bg_pattern_darktile.png`, `bg_pattern_bobbaskulls1.gif`, `logo-bobba-client.png`, `shadow.png`), the polaroid frame (`splash_pictures_no_pixel.png`, 838×302 at runtime), Bobba Helper chrome (`bobba-client-logo-splash.png` 124×108, `bobba-flower.png` 35×93, `bobba-discord-btn.png` / `bobba-settings-btn.png` 300×26), the avatar-editor Clothes button (`bobba_clothes_btn.png` 110×30, `bobba_clothes_hero.png` 485×109), the bottom-bar Helper button (`bobba_menu.png` 114×38, three 38×38 frames), `checkbox.png` (36×18), group chat icons (`group-chat.png` / `group-chat-unread.png`, **33×33**), **`illumina_dark.png`** (11×13; painted over `illumina_purple_border_frame_png` for Mimic style 103), **`illumina_dark_bobba_green.png`** (61×150; `illumina_purple_button_default_png` / style 104), **`bobba_illumina_dark_btn.png`** (72×20; purple close button), `wallmover/` arrows, and **`i18n/` locale JSON** (`en.json`, `pt-BR.json`, `es.json`, `fr.json`).
 
 Sprite sheets follow the Habbo convention — horizontal frames, left to right: two-state is `off | on` (`frameWidth = image.width / 2`), three-state buttons are `normal | hover | click`.
 
@@ -48,6 +48,7 @@ Browser-based helpers in `tools/` (open the `.html` over `file://` or a local st
 | Tool | Purpose |
 |---|---|
 | `bobba-helper-tweaker.html` | Bobba Helper (`:bobba`) content layout → AS3 constants for `BobbaHelperView.as` |
+| `bobba-mimic-tweaker.html` | Mimic window: drag / rotate / scale, z-order, extra buttons & grids → AS3 + JSON |
 | `bobba-settings-tweaker.html` | Bobba Settings window layout (sidebar + topics from `docs/settings-window-spec.md`) → AS3 constants for a future `BobbaSettingsView` / frame XML |
 | `polaroid-tweaker.html` | Photo splash polaroid slots |
 

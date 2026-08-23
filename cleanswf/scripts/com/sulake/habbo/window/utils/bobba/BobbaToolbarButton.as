@@ -55,6 +55,7 @@ package com.sulake.habbo.window.utils.bobba
       {
          super();
          _wm = windowManager;
+         BobbaMimicController.install(windowManager);
          _timer = new Timer(750);
          _timer.addEventListener("timer",onTick);
          _timer.start();
